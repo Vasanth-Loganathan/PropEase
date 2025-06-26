@@ -22,8 +22,7 @@ A Python CLI app for managing real estate data using MySQL and Excel.
 
 - Python 3.x
 - MySQL Server running
-- Place your Excel file in:  
-  `C:\Users\logun\OneDrive\Documents\PropEase\realestae23.xlsx`
+- Place your Excel file in the same folder
 
 ## 🚀 Setup
 
