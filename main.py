@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-conn = mysql.connector.connect(host='localhost', user='root', passwd='yourpassword', database='real_estate_management')
+conn = mysql.connector.connect(host='yourhost', user='username', passwd='yourpassword', database='real_estate_management')
 cur = conn.cursor()
 cur.execute("""
     CREATE TABLE estate02(
@@ -21,7 +21,7 @@ cur.execute("""
         additional_comments VARCHAR(45)
     )
 """)
-loc = r"C:\Users\logun\OneDrive\Documents\PropEase\realestae23.xlsx"
+loc = r"your excel file path"
 wb = openpyxl.load_workbook(loc)
 sheet = wb.active
 header = [cell.value.strip() for cell in sheet[1]] 
@@ -43,7 +43,7 @@ conn.commit()
 conn.close()
 
 def  delete():
-    conn=mysql.connector.connect(host='localhost',user='root',passwd='sarnithl11072009',database='real_estate_management')
+    conn=mysql.connector.connect(host='yourhost',user='username',passwd='yourpassword',database='real_estate_management')
     cur=conn.cursor()
     property_to_delete=int(input('Enter the property ID to delete:'))
     q='delete from estate02 where property_id=%s'
@@ -53,7 +53,7 @@ def  delete():
     conn.close()
 
 def add():
-    conn = mysql.connector.connect(host='localhost',user='root',passwd='sarnithl11072009',database='real_estate_management')
+    conn = mysql.connector.connect(host='yourhost',user='username',passwd='yourpassword',database='real_estate_management')
     cur = conn.cursor()
     property_id = int(input('Enter the property ID:'))
     property_type = input('Enter the property type:')
@@ -84,7 +84,7 @@ def add():
     print('Property Added')
 
 def display():
-    conn=mysql.connector.connect(host='localhost',user='root',passwd='sarnithl11072009',database='real_estate_management')
+    conn=mysql.connector.connect(host='yourhost',user='username',passwd='yourpassword',database='real_estate_management')
     cur = conn.cursor()
     q='select * from estate02'
     cur.execute(q)
@@ -95,7 +95,7 @@ def display():
     conn.close()
 
 def search():
-    conn=mysql.connector.connect(host='localhost',user='root',passwd='sarnithl11072009',database='real_estate_management')
+    conn=mysql.connector.connect(host='yourhost',user='username',passwd='yourpassword',database='real_estate_management')
     cur = conn.cursor()
     property_id=int(input('Enter the property Id:'))
     query='SELECT * FROM estate02  WHERE property_id = %s'
@@ -121,7 +121,7 @@ def search():
     conn.close()
 
 def grouping():
-    conn = mysql.connector.connect(host='localhost',user='root',passwd='sarnithl11072009',database='real_estate_management')        
+    conn = mysql.connector.connect(host='yourhost',user='username',passwd='yourpassword',database='real_estate_management')        
     cur = conn.cursor()
     max_rent_price = int(input("Enter the maximum rent price: "))
     group_by = input("Group by Property Type (P) or Location (L): ").strip().upper()
@@ -148,7 +148,7 @@ def grouping():
         conn.close()
 
 def visualize_rent_price():
-    conn = mysql.connector.connect(host='localhost',user='root',passwd='sarnithl11072009',database='real_estate_management')
+    conn = mysql.connector.connect(host='yourhost',user='username',passwd='yourpassword',database='real_estate_management')
     cur = conn.cursor()
     query = "SELECT rent_price FROM estate02"
     cur.execute(query)
@@ -169,7 +169,7 @@ def visualize_rent_price():
 
 
 def rent_price_statistics():
-    conn=mysql.connector.connect(host='localhost',user='root',passwd='sarnithl11072009',database='real_estate_management')
+    conn=mysql.connector.connect(host='yourhost',user='username',passwd='yourpassword',database='real_estate_management')
     cur=conn.cursor() 
     query = "SELECT rent_price FROM estate02"
     cur.execute(query)
